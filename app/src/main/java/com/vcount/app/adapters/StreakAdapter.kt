@@ -30,8 +30,27 @@ class StreakAdapter(
         holder.tvTitle.text = item.title
         holder.tvCount.text = item.count.toString()
 
+        // 🔥 Count animation
+        holder.tvCount.scaleX = 0.8f
+        holder.tvCount.scaleY = 0.8f
+
+        holder.tvCount.animate()
+            .scaleX(1f)
+            .scaleY(1f)
+            .setDuration(200)
+            .start()
+
+        // 🔥 Card click animation
         holder.itemView.setOnClickListener {
-            onClick(position)
+            holder.itemView.animate()
+                .scaleX(0.96f)
+                .scaleY(0.96f)
+                .setDuration(100)
+                .withEndAction {
+                    holder.itemView.scaleX = 1f
+                    holder.itemView.scaleY = 1f
+                    onClick(position)
+                }
         }
     }
 
