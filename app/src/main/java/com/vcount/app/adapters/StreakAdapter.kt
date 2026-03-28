@@ -26,6 +26,7 @@ class StreakAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
+        circleclip
 
         holder.tvTitle.text = item.title
         holder.tvCount.text = item.count.toString()
